@@ -1,6 +1,13 @@
 
 ArrayList<Curve> curves; // ArrayList untuk menyimpan banyak kurva
-int numberOfCurves = 79; // Jumlah kurva yang ingin dibuat
+int numberOfCurves = 200; // Jumlah kurva yang ingin dibuat
+float globalAngle = 0;
+float rotationSpeed = 0.03;
+float zoomAngle = 0;
+float zoomSpeed= 0.03;
+float minScale = .5;
+float maxScale =1.5;
+
 
 void setup(){
   fullScreen(P2D);
@@ -14,10 +21,8 @@ void setup(){
   // Buat kurva-kurva dengan parameter random
   for(int i = 0; i < numberOfCurves; i++) {
     Curve curv = new Curve();
-    if(curv.mode == 5 || curv.mode == 6){
      curv.speedX = random(-30,30);
      curv.speedY = random(-30,30);
-    }
     curves.add(curv);
   }
 }
@@ -27,12 +32,20 @@ void draw(){
   fill(0, 15); // Transparansi
   noStroke();
   rect(0, 0, width, height);
-
+  globalAngle -= rotationSpeed;
+  zoomAngle += zoomSpeed;
+  float currentAngle = map(tan(zoomAngle),-1,1,minScale,maxScale);
+pushMatrix();
+translate(width/2,height/2);
+scale(currentAngle);
+rotate(globalAngle);
+translate(-width/2,-height/2);
   // Jalankan semua kurva
   for(int i = 0; i < curves.size(); i++) {
     Curve c = curves.get(i);
     c.run();
   }
+  popMatrix();
 }
 
 // Method untuk menambah kurva baru dengan parameter random

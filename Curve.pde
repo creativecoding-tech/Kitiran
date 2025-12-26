@@ -60,27 +60,27 @@ class Curve {
     switch(mode) {
       case 1:
         // Kurva ke kiri atas
-        curve(cpx1, cpy1, width/2, height/2, 0, 0, 0, cpy1);
+        curve(cpx1, cpy1, width/2, height/2, width/4, 50, width, height);
         break;
       case 2:
         // Kurva ke kanan atas
-        curve(cpx1, cpy1, width/2, height/2, width, 0, width, cpy1);
+        curve(cpx1, cpy1, width/2, height/2, width/2+width/4, 50, width, height);
         break;
       case 3:
         // Kurva ke kanan bawah
-        curve(cpx1, cpy1, width/2, height/2, width, height, 0, 0);
+        curve(cpx1, cpy1, width/2, height/2, width/2+width/4, height-50, width, height);
         break;
      case 4:
         //Kurva ke kiri bawah
-        curve(cpx1, cpy1, width/2, height/2, 0, height, 0, 0);
+        curve(cpx1, cpy1, width/2, height/2, width/4, height-50, width, height);
         break;
      case 5:
        //Kurva ke atas
-        curve(cpx1, cpy1, width/2, height/2, width/2, 0, cpx1, height);
+        curve(cpx1, cpy1, width/2, height/2, width/2, 50, width, height);
         break;
      case 6:
        //Kurva ke bawah
-        curve(cpx1, cpy1, width/2, height/2, width/2, height, width, height);
+        curve(cpx1, cpy1, width/2, height/2, width/2, height-50, width, height);
         break;        
     }
   }
