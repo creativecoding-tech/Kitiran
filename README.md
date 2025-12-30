@@ -39,8 +39,6 @@ Anda dapat berinteraksi dengan visualisasi menggunakan tombol berikut:
 
 ## 📄 Lisensi
 
-Copyright © 2025.
-
 Proyek ini dilisensikan di bawah __Apache License 2.0__. Lihat file LICENSE untuk detail selengkapnya.
 
 ---
